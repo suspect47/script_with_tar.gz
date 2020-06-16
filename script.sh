@@ -5,7 +5,7 @@ NGINX_TMP=$DEPLOY_PATH/nginx
 echo "Creating directory /opt/neyross"
 mkdir -p $DEPLOY_PATH
 echo "Copying archive to /opt/neyross "
-tail -n +34 "$0" > $DEPLOY_PATH/$ARCH_NAME
+tail -n +37 "$0" > $DEPLOY_PATH/$ARCH_NAME
 cd $DEPLOY_PATH
 echo "Extracting archive"
 tar xzf $ARCH_NAME
@@ -29,5 +29,8 @@ echo "Restarting neyross server"
 systemctl restart ultima-vmc
 echo "Cleaning build directory"
 rm -rf $DEPLOY_PATH
+echo "The system will reboot in 5 seconds"
+sleep 5
+reboot
 exit 0
 # NOTE: Don't place any newline characters after the last line below.
